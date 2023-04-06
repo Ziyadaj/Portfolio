@@ -1,0 +1,51 @@
+{% extends 'portfolio/layout.html' %}
+{% block body %}
+  <section class="hidden" id="section-1">
+    <h1>About me</h1> 
+    <br>
+    <p><strong>Welcome to my portfolio website!</strong> My name is Ziyad and I am a software engineering student based in Riyadh, Saudi Arabia. As a passionate learner in the field of AI and software engineering, I am excited to share my journey with you.
+
+    </p>
+    <button class="btn btn-outline-light"><a id="read-more" href="{% url 'about' %}">read more...</a></button>
+    
+  </section>
+  <section class="hidden" id="section-2">
+    <h1><strong>Some Skills</strong></h1>
+    <div id="img-cards">
+      <img src="https://img.icons8.com/color/240/null/javascript--v1.png" alt="JavaScript">
+      <img src="https://img.icons8.com/color/240/null/django.png" alt="Django">
+    </div>
+    <div id="img-cards">
+      <img src="https://img.icons8.com/fluency/240/null/java-coffee-cup-logo.png" alt="Java">
+      <img src="https://img.icons8.com/color/240/null/python--v1.png" alt="Python">
+    </div>
+  </section>
+  <section class="hidden" id="section-3">
+    <h1>Projects</h1>
+      {% for project in projects|slice:":3" %}
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'projects' %}" class="btn btn-primary">More</a>
+              </div>
+            </div>
+      {% empty %}
+        <p class="text-secondary">No projects yet</p>
+      {% endfor %}
+  </section>
+  <footer>
+    <div id="copyright">
+      <p>&copy; 2023 Ziyad Aljadhai</p>
+    </div>
+    <div id="nav">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'projects' %}">Projects</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </div>
+    <div id="socials">
+      <a href="https://www.github.com/ziyadaj"><img src="https://img.icons8.com/ios-glyphs/30/null/github.png" alt="Github"></a>
+      <a href="https://www.linkedin.com/in/ziyad-aljadhai-5132b622a/"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/null/external-linkedin-in-logo-used-for-professional-networking-logo-color-tal-revivo.png" alt="Linkedin"></a>
+    </div>
+  </footer>
+{% endblock %}

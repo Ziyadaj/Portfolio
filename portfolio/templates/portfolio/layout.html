@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Portfolio{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+        <link href="{% static 'portfolio/styles.css' %}" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script defer src="{% static 'portfolio/app.js' %}"></script>
+        {% block scripts %}
+        {% endblock %}
+    </head>
+    <body>
+
+      <div class="container">
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}"><strong>Ziyad</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active"  href="{% url 'projects' %}">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                        <div id="nav-socials">
+                          <li class="nav-item"><a href="https://www.github.com/ziyadaj"><img src="https://img.icons8.com/material-sharp/24/null/github.png" alt="Github"></a></li>
+                          <li class="nav-item"><a href="https://www.linkedin.com/in/ziyad-aljadhai-5132b622a/"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/null/external-linkedin-in-logo-used-for-professional-networking-logo-color-tal-revivo.png" alt="Linkedin"></a></li>
+                        </div>
+                        <li class="nav-item">
+                          <button class="btn btn-outline" id="toggle-mode"><img id="img-mode" src="https://img.icons8.com/external-creatype-glyph-colourcreatype/64/null/external-dark-basic-creatype-glyph-colourcreatype.png" alt="toggle mode"></img></button></li>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </nav>
+            <button class="btn btn-outline" id="scroll"><img src="https://img.icons8.com/ios/50/null/circled-chevron-up.png" alt="up arrow"></button>
+        </header>
+
+        <main>
+          <div class="body">
+            {% block body %}
+            {% endblock %}
+          </div>
+        </main>
+
+      </div>
+    </body>
+</html>
