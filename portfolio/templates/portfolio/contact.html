@@ -2,18 +2,24 @@
 {% block body %}
     <!-- message success -->
     {% if message %}
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endif %}
     <!-- message error -->
     {% if error %}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endif %}
-
+        
+               
+                
     <div class="container" id="email">
+        <a href="mailto:ziyad.jadhai@gmail.com"><img src="https://img.icons8.com/color/48/null/filled-message.png" alt="email"></a>
+
         <div>
             <h1 class="text-center">Contact</h1>
         </div>

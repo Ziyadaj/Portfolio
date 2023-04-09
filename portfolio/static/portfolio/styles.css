@@ -39,6 +39,9 @@ section {
 #section-3 > h1{
     margin-bottom: 2rem;
 }
+#section-3 > * p.card-text {
+    max-width: 70ch;
+}
 .hidden {
     opacity: 0;
     transition: all 1s;

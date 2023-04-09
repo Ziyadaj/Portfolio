@@ -7,8 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 
 class ContactForm(forms.Form):
-    from_email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email','class': 'form-control'}), required=True)
-    subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control'}), required=True)
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'someone@example.com','class': 'form-control'}), required=True)
+    subject = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
     message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}), required=True)
 
 def index(request):
@@ -22,15 +22,16 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data["subject"]
-            from_email = form.cleaned_data["from_email"]
+            from_email = form.cleaned_data["email"]
             message = form.cleaned_data['message']
             print(subject, from_email, message)
+            print(settings.EMAIL_HOST_USER)
             try:
-                send_mail(subject, message, from_email, ["admin@example.com"])
+                send_mail(subject + ' FROM: ' + from_email, message, from_email,  [settings.EMAIL_HOST_USER], fail_silently=False)
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             # message success
-            return render(request, "portfolio/contact.html", {"form": form})
+            return render(request, "portfolio/contact.html", {"form": form, "message": "Email sent successfully!"})
     return render(request, "portfolio/contact.html", {"form": form})
 
 
