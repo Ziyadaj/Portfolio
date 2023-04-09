@@ -1,25 +1,23 @@
-# Portfolio
+# Portfolio Website
 
-## Distinctiveness and Complexity
-Compared to the previous CS50W projects, this project satisfies the distinctiveness and complexity requirements by implementing several core principles of front-end web development, such as responsiveness and the use of JavaScript for dynamic viewing.
+This is a portfolio website that showcases my programming career. It was built using Django for the back-end and JavaScript for the front-end.
 
-The website is designed to be responsive, meaning that it adapts its layout and design to fit different screen sizes and device types. This is achieved through the use of CSS media queries, which allow different CSS styles to be applied based on the screen size of the device.
+# Features
 
-Furthermore, the website applies back-end functionality through the project uploading model, the model is simple but it satifies the role needed for this webpage.
+The website has the following features:
 
-The previous projects have their own area of application, compared to this project they dont fall under the same category. It carries over the knowledge gained, but does not use the same functionalities.
+- Admin view for adding, editing, and deleting projects
+- Contact form for visitors to send emails
+- Responsive design for different screen sizes and device types
 
-Overall, the combination of front-end principles such as responsiveness and dynamic functionality with a backend system for content management adds a high degree of distinctiveness and complexity to the project, making it stand out from previous CS50W projects.
+# Usage
 
-## A website that uses django for back-end purposes and javascript for front-end
+To use the website, you can navigate to the following pages:
+
+- Home page: Displays an overview of my programming career and skills
+- Projects page: Displays a list of projects I have worked on, along with descriptions and links to their repositories
+- Contact page: Allows visitors to send me emails through a contact form
+
+As an admin, you can log in to the Django admin panel and access the Projects view. From there, you can add, edit, or delete projects.
 
 This website displays info regarding my professional programing career
-
-## It adheres to these specifactions
-
-- As an admin you can add, edit, delete projects through the projects view.
-
-- As a visitor you can send emails through the contact view.
-
-- As a visitor you can view projects in projects.html.
-
