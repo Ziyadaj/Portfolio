@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 
 class ContactForm(forms.Form):
-    from_email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email','class': 'form-control'}), required=True)
+    from_email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email','class': 'form-control'}), required=True)
     subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control'}), required=True)
     message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}), required=True)
 
@@ -24,12 +24,13 @@ def contact(request):
             subject = form.cleaned_data["subject"]
             from_email = form.cleaned_data["from_email"]
             message = form.cleaned_data['message']
+            print(subject, from_email, message)
             try:
                 send_mail(subject, message, from_email, ["admin@example.com"])
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             # message success
-            return HttpResponseRedirect("/contact", {"form": form, "message": "success"})
+            return render(request, "portfolio/contact.html", {"form": form})
     return render(request, "portfolio/contact.html", {"form": form})
 
 
